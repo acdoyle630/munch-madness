@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
@@ -11,6 +13,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl'
 import Select from '@material-ui/core/Select'
 import mobileStyle from './distance-mobile.jss.js'
+import { selectDistance } from '../../../../actions/select-distance'
 
 const styles = theme => ({
   root: {
@@ -42,6 +45,7 @@ class Distance extends React.Component {
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value })
+    this.props.selectDistance(event.target.value)
   }
 
   render() {
@@ -91,4 +95,15 @@ Distance.propTypes = {
   classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(Distance)
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        selectDistance,
+    },
+    dispatch,
+  )
+}
+
+export default connect(
+    undefined,
+    mapDispatchToProps
+)(withStyles(styles)(Distance))
