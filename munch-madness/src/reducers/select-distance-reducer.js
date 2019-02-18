@@ -11,3 +11,4 @@ export const selectDistanceReducer = (state = initialState, action) =>{
   }
   
   export default selectDistanceReducer
+  

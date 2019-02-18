@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Selector from './components/selector/selector'
 import Distance from './components/distance/distance'
+import General from './components/general/general'
 import mobileStyle from './choose-settings-mobile.jss.js'
 import text from './choose-settings-text'
 import constants from './choose-settings-constants'
@@ -27,6 +28,7 @@ class ChooseSettings extends Component {
           <Selector category={constants.PRICE} />
           <Selector category={constants.STARS} />
           <Distance />
+          <General />
       </div>
     )
   }
