@@ -6,11 +6,21 @@ import mobileStyle from './general-mobile.jss.js'
 import Switch from '@material-ui/core/Switch'
 
 class General extends React.Component {
+   
   state = {
     checkedOpen: false,
     checkedGroups: false,
     checkedRes: false,
     checkedHappy: false
+  }
+
+  componentWillReceiveProps = ( props ) => {
+      this.setState({
+          checkedOpen: props.generalSelections.checkedOpen,
+          checkedGroups: props.generalSelections.checkedGroups,
+          checkedRes: props.generalSelections.checkedRes,
+          checkedHappy: props.generalSelections.checkedHappy,
+      })
   }
 
   handleChange = name => event => {
@@ -19,7 +29,6 @@ class General extends React.Component {
   }
 
   render() {
-
     const style = mobileStyle
 
     return (
@@ -70,6 +79,12 @@ class General extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        generalSelections: state.generalSelections,
+    }
+  }
+
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         selectGeneral,
@@ -79,7 +94,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(
-    undefined,
+    mapStateToProps,
     mapDispatchToProps
 )(General)
   

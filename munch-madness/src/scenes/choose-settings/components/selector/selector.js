@@ -76,8 +76,7 @@ const mapStateToProps = (state) => {
     return {
         selectedPrice: state.selectedPrice,
         selectedStars: state.selectedStars,
-
-        generalSelections: state.generalSelections
+        generalSelections: state.generalSelections,
     }
   }
   

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Selector from './components/selector/selector'
 import Distance from './components/distance/distance'
 import General from './components/general/general'
+import ClearButton from './components/clear-button/clear-button' 
+import ContinueButton from './components/continue-button/continue-button'
 import mobileStyle from './choose-settings-mobile.jss.js'
 import text from './choose-settings-text'
 import constants from './choose-settings-constants'
@@ -13,7 +15,7 @@ class ChooseSettings extends Component {
           price: '',
           stars: '',
       }
-  }
+  } 
 
   render() {
     const style = mobileStyle
@@ -29,6 +31,8 @@ class ChooseSettings extends Component {
           <Selector category={constants.STARS} />
           <Distance />
           <General />
+          <ClearButton />
+          <ContinueButton />
       </div>
     )
   }

@@ -37,6 +37,10 @@ class Distance extends React.Component {
     labelWidth: 0,
   }
 
+  componentWillReceiveProps = (props) => {
+      this.setState({age: props.selectedDistance})
+  } 
+
   componentDidMount() {
     this.setState({
       labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
@@ -95,6 +99,12 @@ Distance.propTypes = {
   classes: PropTypes.object.isRequired,
 }
 
+const mapStateToProps = (state) => {
+    return {
+        selectedDistance: state.selectedDistance,
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         selectDistance,
@@ -104,6 +114,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(
-    undefined,
+    mapStateToProps,
     mapDispatchToProps
 )(withStyles(styles)(Distance))
