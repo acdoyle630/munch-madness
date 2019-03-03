@@ -23,21 +23,31 @@ class Tile extends Component {
 
   searchYelp = async () => {
     const payload = this.buildPayload(this.props.tile)
-    try {
-        const result = await search(payload)
-        console.log(result.name)
-    } catch(error) {
-        console.log(error)
-    }
+        try {
+            const result = await search(payload)
+            console.log(result.name)
+        } catch(error) {
+            console.log(error)
+        }
     }
 
     buildPayload = (category) => {
-    return {
-        location: '72713',
-        term: category,
-        price: '1,2,3',
-        open_now: true,
+        return {
+            location: '72713',
+            term: category,
+            price: this.allowedPrices(),
+            open_now: true,
         }
+    }
+
+    allowedPrices = () => {
+        let prices = []
+        Object.keys(this.props.selectedPrice).forEach((price) => {
+            if( this.props.selectedPrice[price] ) {
+                prices.push(Number(price) + 1).toString()
+            }
+        })
+        return prices.join(',')
     }
 
   render() {
@@ -55,7 +65,11 @@ class Tile extends Component {
 
 const mapStateToProps = ( state ) => {
     return {
-        selectedCategory: state.selectedCategory
+        selectedCategory: state.selectedCategory,
+        selectedPrice: state.selectedPrice,
+        selectedStars: state.selectedStars,
+        selectedDistance: state.selectedDistance,
+        generalSelections: state.generalSelections,
     }
 }
 
