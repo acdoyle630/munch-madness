@@ -1,10 +1,10 @@
 import { SELECT_GENERAL } from '../actions/select-general'
 
 const initialState = {
-    checkedOpen: false,
+    open_now: false,
     checkedGroups: false,
-    checkedRes: false,
-    checkedHappy: false
+    reservation: false,
+    deals: false
 }
 
 export const selectGeneralReducer = (state = initialState, action) =>{

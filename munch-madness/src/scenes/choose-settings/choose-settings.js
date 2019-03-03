@@ -28,7 +28,6 @@ class ChooseSettings extends Component {
               {text.instructions}
           </div>
           <Selector category={constants.PRICE} />
-          <Selector category={constants.STARS} />
           <Distance />
           <General />
           <ClearButton />
@@ -39,3 +38,6 @@ class ChooseSettings extends Component {
 }
 
 export default ChooseSettings
+
+
+//  <Selector category={constants.STARS} /> If search by stars

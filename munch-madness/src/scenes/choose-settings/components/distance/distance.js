@@ -82,12 +82,11 @@ class Distance extends React.Component {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={.5}>.5 Mile</MenuItem>
-            <MenuItem value={1}>1 Mile</MenuItem>
-            <MenuItem value={1.5}>1.5 Mile</MenuItem>
-            <MenuItem value={2}>2 Miles</MenuItem>
-            <MenuItem value={2.5}>2.5 Miles</MenuItem>
-            <MenuItem value={3}>3 Miles</MenuItem>
+            <MenuItem value={8000}>5 Mile</MenuItem>
+            <MenuItem value={16000}>10 Mile</MenuItem>
+            <MenuItem value={24000}>15 Mile</MenuItem>
+            <MenuItem value={32000}>20 Miles</MenuItem>
+            <MenuItem value={40000}>25 Miles</MenuItem>
           </Select>
         </FormControl>
       </form>

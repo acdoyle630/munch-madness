@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Redirect } from 'react-router-dom'
+import { resetCategories } from '../../actions/select-category'
+import { resetTeams } from '../../actions/teams'
 import Tile from './components/tile/tile'
 import ContinueButton from './components/continue-button/continue-button'
 import ClearButton from './components/clear-button/clear-button'
@@ -33,6 +37,8 @@ class ChooseCategories extends Component {
           <div 
             onClick={(() => {
                 this.setState({startOver: true})
+                this.props.resetCategories()
+                this.props.resetTeams()
             })}
             style={style.startOver}  
           >Start Over</div>
@@ -64,4 +70,16 @@ class ChooseCategories extends Component {
   }
 }
 
-export default ChooseCategories
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+        resetCategories,
+        resetTeams,
+    },
+    dispatch,
+  )
+}
+  
+export default connect(
+    undefined,
+    mapDispatchToProps
+)(ChooseCategories)

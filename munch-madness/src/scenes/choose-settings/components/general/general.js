@@ -8,18 +8,18 @@ import Switch from '@material-ui/core/Switch'
 class General extends React.Component {
    
   state = {
-    checkedOpen: false,
+    open_now: false,
     checkedGroups: false,
-    checkedRes: false,
-    checkedHappy: false
+    reservation: false,
+    deals: false
   }
 
   componentWillReceiveProps = ( props ) => {
       this.setState({
-          checkedOpen: props.generalSelections.checkedOpen,
+          open_now: props.generalSelections.open_now,
           checkedGroups: props.generalSelections.checkedGroups,
-          checkedRes: props.generalSelections.checkedRes,
-          checkedHappy: props.generalSelections.checkedHappy,
+          reservation: props.generalSelections.reservation,
+          deals: props.generalSelections.deals,
       })
   }
 
@@ -38,12 +38,12 @@ class General extends React.Component {
                 Open now
             </div>
             <Switch
-                checked={this.state.checkedOpen}
-                onChange={this.handleChange('checkedOpen')}
+                checked={this.state.open_now}
+                onChange={this.handleChange('open_now')}
                 style={style.individualSwitch}
             />
         </div>
-        <div style={style.switch}>
+        {/* <div style={style.switch}>  No Groups Query
             <div>
                 Good for Groups
             </div>
@@ -52,24 +52,24 @@ class General extends React.Component {
                 onChange={this.handleChange('checkedGroups')}
                 style={style.individualSwitch}
             />
-        </div>
+        </div> */}
         <div style={style.switch}>
             <div>
                 Takes Reservations
             </div>
             <Switch
-                checked={this.state.checkedRes}
-                onChange={this.handleChange('checkedRes')}
+                checked={this.state.reservation}
+                onChange={this.handleChange('reservation')}
                 style={style.individualSwitch}
             />
         </div>
         <div style={style.switch}>
             <div>
-                Happy Hour
+                Offers Deals
             </div>
             <Switch
-                checked={this.state.checkedHappy}
-                onChange={this.handleChange('checkedHappy')}
+                checked={this.state.deals}
+                onChange={this.handleChange('deals')}
                 style={style.individualSwitch}
             />
         </div>
