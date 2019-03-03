@@ -8,37 +8,41 @@ class ContinueButton extends Component {
   constructor(props){
       super(props)
       this.state = {
-          chooseCategories: false,
+            continue: false,
+            results: [],
       }
   }
 
   render() {
-
-    if ( this.state.chooseCategories ) {
-        return(
-            <Redirect to={{
-              pathname : '/choose-categories'
-            }} />
-        ) 
-    }
+    // if ( this.state.continue ) {
+    //     return(
+    //         <Redirect to={{
+    //           pathname : '/teams'
+    //         }} />
+    //     ) 
+    // }
     
     const style = mobileStyle
 
     return (
       <div 
         style={style.button}
-        onClick={(() => {
-            this.setState({ chooseCategories: true })
-      })}>
+        onClick={this.searchYelp}>
           Continue
       </div>
     )
   }
 }
 
-// const mapStateToProps = (state) => {
-//     return {}
-//   }
+const mapStateToProps = ( state ) => {
+    return {
+        selectedCategory: state.selectedCategory,
+        selectedPrice: state.selectedPrice,
+        selectedStars: state.selectedStars,
+        selectedDistance: state.selectedDistance,
+        generalSelections: state.generalSelections,
+    }
+}
   
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
@@ -49,8 +53,7 @@ const mapDispatchToProps = (dispatch) => {
 }
   
 export default connect(
-    //mapStateToProps,
-    undefined,
+    mapStateToProps,
     mapDispatchToProps
 )(ContinueButton)
   

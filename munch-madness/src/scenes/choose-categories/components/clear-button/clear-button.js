@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { clearAll } from '../../../../action-thunks/clear-all'
 import mobileStyle from './clear-button.jss'
 
 class ClearButton extends Component {
@@ -14,7 +13,7 @@ class ClearButton extends Component {
       <div 
         style={style.button}
         onClick={(() => {
-          this.props.clearAll()
+          console.log('clear')
       })}>
           Clear
       </div>
@@ -28,7 +27,7 @@ class ClearButton extends Component {
   
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-       clearAll,
+       //clearAll,
     },
     dispatch,
   )

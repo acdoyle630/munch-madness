@@ -13,6 +13,7 @@ import thunkMiddleware from 'redux-thunk'
 import reducers  from './reducers'
 import HomePage from './scenes/home-page/home-page'
 import ChooseSettings from './scenes/choose-settings/choose-settings'
+import ChooseCategories from './scenes/choose-categories/choose-categories'
 import './index.css'
 
 const store = createStore(
@@ -27,6 +28,7 @@ ReactDOM.render(
       <div>
         <Route exact path = '/' component={HomePage} />
         <Route exact path = '/choose-settings' component={ChooseSettings} />
+        <Route exact path = '/choose-categories' component={ChooseCategories} />
       </div>
     </Router>
   </Provider>,

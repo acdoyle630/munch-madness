@@ -4,6 +4,7 @@ import { selectPriceReducers } from './select-price-reducer'
 import { selectStarsReducers } from './select-stars-reducer'
 import { selectDistanceReducer } from './select-distance-reducer'
 import { selectGeneralReducer } from './select-general-reducer'
+import { selectCategoryReducer } from './select-category-reducer'
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     selectedStars: selectStarsReducers,
     selectedDistance: selectDistanceReducer,
     generalSelections: selectGeneralReducer,
+    selectedCategory: selectCategoryReducer,
 })
   
