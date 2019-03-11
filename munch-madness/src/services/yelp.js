@@ -13,7 +13,8 @@ export const search = ( payload ) => {
             }
         }
     ).then((response) => {
-        const index = Math.floor(Math.random() * Math.floor(response.data.businesses.length))
-        return response.data.businesses[index]
+        return response.data.businesses
+    }).catch((e) => {
+        console.log(e)
     })
 }

@@ -6,6 +6,8 @@ import { selectDistanceReducer } from './select-distance-reducer'
 import { selectGeneralReducer } from './select-general-reducer'
 import { selectCategoryReducer } from './select-category-reducer'
 import { teamsReducer } from './teams-reducer'
+import { selectedPlayersReducer } from './selected-players-reducer'
+import { bracketReducer } from './bracket-reducer'
 
 
 export default combineReducers({
@@ -15,5 +17,7 @@ export default combineReducers({
     generalSelections: selectGeneralReducer,
     selectedCategory: selectCategoryReducer,
     teams: teamsReducer,
+    players: selectedPlayersReducer,
+    bracket: bracketReducer,
 })
   

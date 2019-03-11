@@ -9,9 +9,9 @@ export const teamIsFetching = () => ({
     type: TEAM_IS_FETCHING,
 })
 
-export const addTeam = (team, category) => ({
+export const addTeam = (teams, category) => ({
     type: ADD_TEAM,
-    team,
+    teams,
     category,
 }) 
 

@@ -14,6 +14,7 @@ import reducers  from './reducers'
 import HomePage from './scenes/home-page/home-page'
 import ChooseSettings from './scenes/choose-settings/choose-settings'
 import ChooseCategories from './scenes/choose-categories/choose-categories'
+import Bracket from './scenes/bracket/bracket'
 import './index.css'
 
 const store = createStore(
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route exact path = '/' component={HomePage} />
         <Route exact path = '/choose-settings' component={ChooseSettings} />
         <Route exact path = '/choose-categories' component={ChooseCategories} />
+        <Route exact path = '/bracket' component={Bracket} />
       </div>
     </Router>
   </Provider>,

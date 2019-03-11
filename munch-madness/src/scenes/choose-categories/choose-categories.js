@@ -70,6 +70,12 @@ class ChooseCategories extends Component {
   }
 }
 
+const mapStateToProps = ( state ) => {
+    return {
+        teams: state.teams
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
         resetCategories,
@@ -80,6 +86,6 @@ const mapDispatchToProps = (dispatch) => {
 }
   
 export default connect(
-    undefined,
+    mapStateToProps,
     mapDispatchToProps
 )(ChooseCategories)

@@ -6,7 +6,42 @@ import {
     RESET_TEAMS } from '../actions/teams'
 
 const initialState = {
-    teams: [],
+    pizza: {
+        teams: []
+    },
+    sandwich: {
+        teams: []
+    }, 
+    sushi: {
+        teams: []
+    },
+    'fast food': {
+        teams: []
+    },
+    Chinese: {
+        teams: []
+    },
+    pho: {
+        teams: []
+    },
+    thai: {
+        teams: []
+    },
+    Italian: {
+        teams: []
+    },
+    Mexican: {
+        teams: []
+    },
+    'food trucks': {
+        teams: []
+    },
+    buffet: {
+        teams: []
+    },
+    tapas: {
+        teams: []
+    },
     isFetching: false,
 }
 
@@ -17,12 +52,14 @@ export const teamsReducer = (state = initialState, action) =>{
             isFetching: true
         })
       case ADD_TEAM:
-        const teamWithCategory = Object.assign({}, action.team, {
-            category: action.category
-        })
-        const allTeams = state.teams.concat(teamWithCategory)
+        // const teamWithCategory = Object.assign({}, action.team, {
+        //     category: action.category
+        // })
+        // const allTeams = state.teams.concat(teamWithCategory)
         return Object.assign({}, state, {
-            teams: allTeams,
+            [action.category]: {
+                teams: action.teams
+            },
             isFetching: false,
         })
       case RESET_TEAM_IS_FETCHING:
@@ -30,12 +67,13 @@ export const teamsReducer = (state = initialState, action) =>{
             isFetching: false,
         })
       case REMOVE_TEAM:
-        const removedTeams = state.teams.filter((team) => {
-            console.log(team)
-            return team.category !== action.category
-        })
+        // const removedTeams = state.teams.filter((team) => {
+        //     return team.category !== action.category
+        // })
         return Object.assign({}, state, {
-            teams: removedTeams
+            [action.category]: {
+                teams: []
+            },
         })
       case RESET_TEAMS:
         return initialState

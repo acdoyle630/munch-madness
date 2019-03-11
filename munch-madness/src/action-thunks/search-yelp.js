@@ -17,7 +17,6 @@ export const searchYelp = (category) => async (dispatch, getState) => {
     )
     try {
         const result = await search(payload)
-        console.log(result)
         if(result){
             dispatch(addTeam(result, category))
         } else {
