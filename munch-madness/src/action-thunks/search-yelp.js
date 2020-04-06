@@ -13,7 +13,8 @@ export const searchYelp = (category) => async (dispatch, getState) => {
         category,
         state.selectedPrice,
         state.selectedDistance,
-        state.generalSelections
+        state.generalSelections,
+        state.location.zip_code,
     )
     try {
         const result = await search(payload)

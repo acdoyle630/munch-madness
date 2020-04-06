@@ -8,7 +8,12 @@ const style = {
     callToAction: {
         display: 'flex',
         justifyContent: 'center'
-    }
+    },
+    form: {
+        marginBottom: '3vh',
+        display: 'flex',
+        justifyContent: 'center'
+    },
 }
 
 export default style

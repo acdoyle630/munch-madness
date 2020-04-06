@@ -8,7 +8,7 @@ import { selectCategoryReducer } from './select-category-reducer'
 import { teamsReducer } from './teams-reducer'
 import { selectedPlayersReducer } from './selected-players-reducer'
 import { bracketReducer } from './bracket-reducer'
-
+import { setLocationReducer } from './set-location-reducer'
 
 export default combineReducers({
     selectedPrice: selectPriceReducers,
@@ -19,5 +19,6 @@ export default combineReducers({
     teams: teamsReducer,
     players: selectedPlayersReducer,
     bracket: bracketReducer,
+    location: setLocationReducer,
 })
   

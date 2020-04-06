@@ -3,10 +3,11 @@ export const buildPayload = (
     category,
     selectedPrice,
     selectedDistance,
-    attributes
+    attributes,
+    zip
     ) => {
         return {
-            location: '72713',
+            location: zip,
             term: category,
             price: allowedPrices(selectedPrice),
             open_now: attributes.open_now,
