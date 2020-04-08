@@ -23,7 +23,7 @@ class Bracket extends Component {
 
 const mapStateToProps = ( state ) => {
     return {
-        players: state.players
+        players: state.players,
     }
 }
 

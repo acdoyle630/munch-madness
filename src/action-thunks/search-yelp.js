@@ -14,7 +14,7 @@ export const searchYelp = (category) => async (dispatch, getState) => {
         state.selectedPrice,
         state.selectedDistance,
         state.generalSelections,
-        state.location.zip_code,
+        state.location.ZipCode,
     )
     try {
         const result = await search(payload)

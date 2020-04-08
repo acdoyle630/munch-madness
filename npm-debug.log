@@ -4,18 +4,27 @@
 1 verbose cli   'start' ]
 2 info using npm@4.0.5
 3 info using node@v9.11.1
-4 verbose stack Error: ENOENT: no such file or directory, open 'C:\Users\Adam\Desktop\munch-madness\package.json'
-5 verbose cwd C:\Users\Adam\Desktop\munch-madness
-6 error Windows_NT 10.0.17134
-7 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Adam\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "start"
-8 error node v9.11.1
-9 error npm  v4.0.5
-10 error path C:\Users\Adam\Desktop\munch-madness\package.json
-11 error code ENOENT
-12 error errno -4058
-13 error syscall open
-14 error enoent ENOENT: no such file or directory, open 'C:\Users\Adam\Desktop\munch-madness\package.json'
-15 error enoent ENOENT: no such file or directory, open 'C:\Users\Adam\Desktop\munch-madness\package.json'
-15 error enoent This is most likely not a problem with npm itself
-15 error enoent and is related to npm not being able to find a file.
-16 verbose exit [ -4058, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle com.example.hello.helloworld@1.0.0~prestart: com.example.hello.helloworld@1.0.0
+6 silly lifecycle com.example.hello.helloworld@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle com.example.hello.helloworld@1.0.0~start: com.example.hello.helloworld@1.0.0
+8 verbose lifecycle com.example.hello.helloworld@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle com.example.hello.helloworld@1.0.0~start: PATH: C:\Users\Adam\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;C:\Users\Adam\Desktop\sandbox\hello\node_modules\.bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Brackets\command;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\Adam\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Sublime Text 3;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\Adam\AppData\Roaming\npm;;C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code\bin
+10 verbose lifecycle com.example.hello.helloworld@1.0.0~start: CWD: C:\Users\Adam\Desktop\sandbox\hello
+11 silly lifecycle com.example.hello.helloworld@1.0.0~start: Args: [ '/d /s /c', 'react-scripts start' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at process.kill (internal/process.js:166:20)
+12 verbose stack     at process.listener (C:\Users\Adam\AppData\Roaming\npm\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+12 verbose stack     at process.emit (events.js:185:15)
+13 verbose cwd C:\Users\Adam\Desktop\sandbox\hello
+14 error Windows_NT 10.0.18362
+15 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Adam\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "start"
+16 error node v9.11.1
+17 error npm  v4.0.5
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

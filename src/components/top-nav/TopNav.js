@@ -4,11 +4,11 @@ import style from './TopNav.jss'
 import { AppBar, Toolbar } from '@material-ui/core'
 class TopNav extends Component {
     render(){
-        const { city, state } = this.props.location
+        const { CityAliasName, State } = this.props.location
         console.log(this.props.location)
         return(
             <AppBar position="fixed" style={style.topNav}>
-                <Toolbar>{city && `${city}, ${state}`}</Toolbar>
+                <Toolbar>{CityAliasName && `${CityAliasName}, ${State}`}</Toolbar>
             </AppBar>
         )
     }

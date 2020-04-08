@@ -21,7 +21,7 @@ class HomePage extends Component {
   chooseSettings = async () => {
       try {
           const response =  await zipSearch(this.state.zip)
-          this.props.setLocation(response)
+          this.props.setLocation(response.item)
           this.setState({
               chooseSettings: true
           })
@@ -79,3 +79,8 @@ export default connect(
     undefined,
     mapDispatchToProps
 )(HomePage)
+
+
+//
+// https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/90210?key=DEMOAPIKEY
+// https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/80223/?key=L0LXBW0HLI22UZ75855G

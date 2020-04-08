@@ -3,7 +3,8 @@ import keys from '../private/keys.json'
 
 
 export const zipSearch = (zipCode) => {
-    const url = `https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/${keys.zip}/info.json/${zipCode}/degrees`
+    console.log(keys)
+    const url = `https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/${zipCode}?key=${keys.zip2}`
     return get(url).then((res) => {
         return res.data
     })
