@@ -4,10 +4,10 @@ import { bindActionCreators } from "redux";
 import mobileStyle from "./home-page.jss";
 import text from "./home-page-text";
 import { Redirect } from "react-router-dom";
-import { Input } from "@material-ui/core";
+import { showTopNav } from "../../actions/show-top-nav";
 import { zipSearch } from "../../services/zip";
 import { setLocation } from "../../actions/set-location";
-import PageLayout from "../../components/page-layout/PageLayout";
+import logo from "../../assets/mm_logo.svg";
 
 class HomePage extends Component {
   constructor(props) {
@@ -17,6 +17,10 @@ class HomePage extends Component {
       zip: "",
     };
   }
+
+  componentWillMount = () => {
+    this.props.showTopNav(false);
+  };
 
   chooseSettings = async () => {
     try {
@@ -36,7 +40,6 @@ class HomePage extends Component {
       await this.setState({ zip: event.target.value });
       console.log(this.state.zip.length);
     }
-
     console.log(this.state.zip);
   };
 
@@ -53,20 +56,20 @@ class HomePage extends Component {
 
     const style = mobileStyle;
     return (
-      <PageLayout>
-        <div style={style.logo}>LOGO</div>
-        <div style={style.form}>
-          <Input
-            id="zip"
-            type="number"
-            value={this.state.zip}
-            onChange={this.handleZipChange}
-          />
-        </div>
+      <div style={style.background}>
+        <img style={style.logo} src={logo} alt="logo" width="70%" />
+        <input
+          style={style.input}
+          placeholder="Enter your zip code"
+          id="zip"
+          type="number"
+          value={this.state.zip}
+          onChange={this.handleZipChange}
+        />
         <div style={style.callToAction} onClick={this.chooseSettings}>
-          {text.callToAction}
+          <div style={style.text}>{text.callToAction}</div>
         </div>
-      </PageLayout>
+      </div>
     );
   }
 }
@@ -75,6 +78,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       setLocation,
+      showTopNav,
     },
     dispatch
   );

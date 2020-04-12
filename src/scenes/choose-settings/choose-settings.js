@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import Selector from "./components/selector/selector";
 import Distance from "./components/distance/distance";
 import General from "./components/general/general";
@@ -8,6 +10,7 @@ import mobileStyle from "./choose-settings-mobile.jss.js";
 import text from "./choose-settings-text";
 import constants from "./choose-settings-constants";
 import PageLayout from "../../components/page-layout/PageLayout";
+import { showTopNav } from "../../actions/show-top-nav";
 
 class ChooseSettings extends Component {
   constructor(props) {
@@ -17,6 +20,10 @@ class ChooseSettings extends Component {
       stars: "",
     };
   }
+
+  componentWillMount = () => {
+    this.props.showTopNav(true);
+  };
 
   render() {
     const style = mobileStyle;
@@ -34,4 +41,13 @@ class ChooseSettings extends Component {
   }
 }
 
-export default ChooseSettings;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      showTopNav,
+    },
+    dispatch
+  );
+};
+
+export default connect(undefined, mapDispatchToProps)(ChooseSettings);

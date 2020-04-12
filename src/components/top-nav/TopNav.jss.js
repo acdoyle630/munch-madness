@@ -1,9 +1,9 @@
 const style = {
-    topNav: {
-        height: '7vh',
-        display: 'flex',
-        justifyContent: 'center'
-    }
-}  
+  topNav: {
+    height: "7vh",
+    display: "flex",
+    justifyContent: "center",
+  },
+};
 
-export default style
+export default style;
