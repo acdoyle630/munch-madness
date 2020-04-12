@@ -10,6 +10,8 @@ import { selectedPlayersReducer } from "./selected-players-reducer";
 import { bracketReducer } from "./bracket-reducer";
 import { setLocationReducer } from "./set-location-reducer";
 import { showTopNavReducer } from "./show-top-nav-reducer";
+import { errorModalReducer } from "./modals/error-modal-reducer";
+import { setPhaseReducer } from "./set-phase-reducer";
 
 export default combineReducers({
   selectedPrice: selectPriceReducers,
@@ -22,4 +24,6 @@ export default combineReducers({
   bracket: bracketReducer,
   location: setLocationReducer,
   showTopNav: showTopNavReducer,
+  errorModal: errorModalReducer,
+  phase: setPhaseReducer,
 });

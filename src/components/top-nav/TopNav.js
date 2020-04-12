@@ -1,14 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import style from "./TopNav.jss";
-import { AppBar, Toolbar } from "@material-ui/core";
+import { AppBar } from "@material-ui/core";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 class TopNav extends Component {
   render() {
-    const { CityAliasName, State } = this.props.location;
+    const { MixedCaseCity, State } = this.props.location;
     return this.props.showTopNav ? (
       <AppBar position="fixed" style={style.topNav}>
-        <Toolbar>{CityAliasName && `${CityAliasName}, ${State}`}</Toolbar>
+        <div style={style.toolBar}>
+          <div style={style.phase}>
+            <ArrowBackIosIcon />
+            {this.props.phase}
+          </div>
+          <div style={style.location}>
+            {MixedCaseCity && `${MixedCaseCity}, ${State}`}
+          </div>
+        </div>
       </AppBar>
     ) : (
       <div></div>
@@ -18,6 +27,7 @@ class TopNav extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    phase: state.phase,
     location: state.location,
     showTopNav: state.showTopNav,
   };

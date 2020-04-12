@@ -8,6 +8,7 @@ import reducers from "./reducers";
 import HomePage from "./scenes/home-page/home-page";
 import ChooseSettings from "./scenes/choose-settings/choose-settings";
 import ChooseCategories from "./scenes/choose-categories/choose-categories";
+import ErrorModal from "./components/modals/ErrorModal";
 import TopNav from "./components/top-nav/TopNav";
 import Bracket from "./scenes/bracket/bracket";
 import "./index.css";
@@ -20,7 +21,8 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <TopNav hidden={false} />
+    <TopNav />
+    <ErrorModal />
     <Router>
       <div>
         <Route exact path="/" component={HomePage} />

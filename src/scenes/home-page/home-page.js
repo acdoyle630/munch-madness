@@ -7,7 +7,9 @@ import { Redirect } from "react-router-dom";
 import { showTopNav } from "../../actions/show-top-nav";
 import { zipSearch } from "../../services/zip";
 import { setLocation } from "../../actions/set-location";
-import logo from "../../assets/mm_logo.svg";
+import { openErrorModal } from "../../actions/modals/error-modal";
+import { setPhase } from "../../actions/set-phase";
+import logo from "../../assets/Logo.png";
 
 class HomePage extends Component {
   constructor(props) {
@@ -25,11 +27,17 @@ class HomePage extends Component {
   chooseSettings = async () => {
     try {
       const response = await zipSearch(this.state.zip);
+      this.props.setPhase("Parameters");
       this.props.setLocation(response.item);
       this.setState({
         chooseSettings: true,
       });
-    } catch (e) {}
+    } catch (e) {
+      this.props.openErrorModal({
+        header: "You dun goofed",
+        message: "Please choose a valid zip code",
+      });
+    }
   };
 
   handleZipChange = async (event) => {
@@ -74,6 +82,8 @@ const mapDispatchToProps = (dispatch) => {
     {
       setLocation,
       showTopNav,
+      openErrorModal,
+      setPhase,
     },
     dispatch
   );

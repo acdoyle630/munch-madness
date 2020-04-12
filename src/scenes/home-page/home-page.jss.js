@@ -1,11 +1,11 @@
 import background from "../../assets/background.svg";
 import backgroundTile from "../../assets/background_tile.svg";
-
+import backgroundTile2 from "../../assets/bg_food.svg";
+import { colors } from "../../themes/colors";
 const style = {
   background: {
-    backgroundImage: `url(${backgroundTile})`,
-    backgroundColor: "#25D6CB",
-    dbackgroundColor: "#25D6CB",
+    backgroundImage: `url(${backgroundTile2})`,
+    backgroundColor: colors.teal,
     height: "100vh",
     display: "flex",
     flexDirection: "column",
@@ -23,7 +23,7 @@ const style = {
     padding: "2px",
   },
   callToAction: {
-    backgroundColor: "#EE4E37",
+    backgroundColor: colors.darkOrange,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
