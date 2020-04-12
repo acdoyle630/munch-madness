@@ -1,9 +1,11 @@
 import background from "../../assets/background.svg";
+import backgroundTile from "../../assets/background_tile.svg";
 
 const style = {
   background: {
-    backgroundImage: `url(${background})`,
+    backgroundImage: `url(${backgroundTile})`,
     backgroundColor: "#25D6CB",
+    dbackgroundColor: "#25D6CB",
     height: "100vh",
     display: "flex",
     flexDirection: "column",

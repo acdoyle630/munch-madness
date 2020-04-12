@@ -29,18 +29,13 @@ class HomePage extends Component {
       this.setState({
         chooseSettings: true,
       });
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   handleZipChange = async (event) => {
-    console.log(event.target.value);
     if (this.state.zip.length < 5 || event.target.value.length < 5) {
       await this.setState({ zip: event.target.value });
-      console.log(this.state.zip.length);
     }
-    console.log(this.state.zip);
   };
 
   render() {
