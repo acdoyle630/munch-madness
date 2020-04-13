@@ -1,7 +1,8 @@
 const mobileStyle = {
-    category: {
-        marginLeft: '3vw'
-    },
-}
+  category: {
+    marginLeft: "3vw",
+    fontWeight: "bold",
+  },
+};
 
-export default mobileStyle
+export default mobileStyle;

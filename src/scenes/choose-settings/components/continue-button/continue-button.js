@@ -1,56 +1,53 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { Redirect } from 'react-router-dom'
-import mobileStyle from './continue-button.jss'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Redirect } from "react-router-dom";
+import mobileStyle from "./continue-button.jss";
 
 class ContinueButton extends Component {
-  constructor(props){
-      super(props)
-      this.state = {
-          chooseCategories: false,
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      chooseCategories: false,
+    };
   }
 
   render() {
-
-    if ( this.state.chooseCategories ) {
-        return(
-            <Redirect to={{
-              pathname : '/choose-categories'
-            }} />
-        ) 
+    if (this.state.chooseCategories) {
+      return (
+        <Redirect
+          to={{
+            pathname: "/choose-categories",
+          }}
+        />
+      );
     }
-    
-    const style = mobileStyle
+
+    const style = mobileStyle;
 
     return (
-      <div 
+      <div
         style={style.button}
-        onClick={(() => {
-            this.setState({ chooseCategories: true })
-      })}>
-          Continue
+        onClick={() => {
+          this.setState({ chooseCategories: true });
+        }}
+      >
+        Continue to Categories
       </div>
-    )
+    );
   }
 }
 
 // const mapStateToProps = (state) => {
 //     return {}
 //   }
-  
+
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-       
-    },
-    dispatch,
-  )
-}
-  
+  return bindActionCreators({}, dispatch);
+};
+
 export default connect(
-    //mapStateToProps,
-    undefined,
-    mapDispatchToProps
-)(ContinueButton)
-  
+  //mapStateToProps,
+  undefined,
+  mapDispatchToProps
+)(ContinueButton);

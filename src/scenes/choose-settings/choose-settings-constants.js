@@ -1,6 +1,6 @@
 const constants = Object.freeze({
-    PRICE: 'Price',
-    STARS: 'Stars'
-})
+  PRICE: "Max Price",
+  STARS: "Stars",
+});
 
-export default constants
+export default constants;

@@ -4,4 +4,6 @@ export const colors = {
   confirmBlue: "blue",
   white: "white",
   black: "black",
+  unselectedGrey: "#F9F7F7",
+  selectedBlue: "blue",
 };

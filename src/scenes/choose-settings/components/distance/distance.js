@@ -1,73 +1,73 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import React from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 //import Input from '@material-ui/core/Input'
-import OutlinedInput from '@material-ui/core/OutlinedInput'
+import OutlinedInput from "@material-ui/core/OutlinedInput";
 //import FilledInput from '@material-ui/core/FilledInput'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
 //import FormHelperText from '@material-ui/core/FormHelperText'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import mobileStyle from './distance-mobile.jss.js'
-import { selectDistance } from '../../../../actions/select-distance'
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import mobileStyle from "./distance-mobile.jss.js";
+import { selectDistance } from "../../../../actions/select-distance";
+import { colors } from "../../../../themes/colors";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
-    //marginTop: '100px',
-    display: 'flex',
-    flexWrap: 'wrap',
+    marginTop: "10px",
+    display: "flex",
+    flexWrap: "wrap",
   },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: '94vw',
+    minWidth: "94vw",
+    backgroundColor: colors.unselectedGrey,
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
   },
-})
+});
 
 class Distance extends React.Component {
   state = {
-    age: '',
-    name: 'hai',
+    age: "",
+    name: "hai",
     labelWidth: 0,
-  }
+  };
 
   componentWillReceiveProps = (props) => {
-      this.setState({age: props.selectedDistance})
-  } 
+    this.setState({ age: props.selectedDistance });
+  };
 
   componentDidMount() {
     this.setState({
       labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth,
-    })
+    });
   }
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value })
-    this.props.selectDistance(event.target.value)
-  }
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+    this.props.selectDistance(event.target.value);
+  };
 
   render() {
-    const { classes } = this.props
-    const style = mobileStyle
+    const { classes } = this.props;
+    const style = mobileStyle;
 
     return (
       <form className={classes.root} autoComplete="off">
         <div style={style.category}>Distance</div>
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel
-            ref={ref => {
-              this.InputLabelRef = ref
+            ref={(ref) => {
+              this.InputLabelRef = ref;
             }}
             htmlFor="outlined-age-simple"
-          >
-            
-          </InputLabel>
+          ></InputLabel>
           <Select
             value={this.state.age}
             onChange={this.handleChange}
@@ -90,29 +90,30 @@ class Distance extends React.Component {
           </Select>
         </FormControl>
       </form>
-    )
+    );
   }
 }
 
 Distance.propTypes = {
   classes: PropTypes.object.isRequired,
-}
+};
 
 const mapStateToProps = (state) => {
-    return {
-        selectedDistance: state.selectedDistance,
-    }
-}
+  return {
+    selectedDistance: state.selectedDistance,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({
-        selectDistance,
+  return bindActionCreators(
+    {
+      selectDistance,
     },
-    dispatch,
-  )
-}
+    dispatch
+  );
+};
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withStyles(styles)(Distance))
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(Distance));

@@ -34,10 +34,14 @@ class Selector extends Component {
     const style = mobileStyle;
     let selectedStyle;
     if (this.props.category === constants.PRICE) {
-      selectedStyle = this.props.selectedPrice[index]
-        ? style.selectedBox
-        : style.unselectedBox;
-      return selectedStyle;
+      if (
+        index <= this.props.selectedPrice &&
+        this.props.selectedPrice !== null
+      ) {
+        return style.selectedBox;
+      } else {
+        return style.unselectedBox;
+      }
     } else {
       selectedStyle = this.props.selectedStars[index]
         ? style.selectedBox

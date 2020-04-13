@@ -34,8 +34,10 @@ class ChooseSettings extends Component {
         <Selector category={constants.PRICE} />
         <Distance />
         <General />
-        <ClearButton />
-        <ContinueButton />
+        <div style={style.buttons}>
+          <ClearButton />
+          <ContinueButton />
+        </div>
       </PageLayout>
     );
   }
