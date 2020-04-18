@@ -32,7 +32,7 @@ class ContinueButton extends Component {
       <div
         style={style.button}
         onClick={() => {
-          this.props.setPhase("Categories");
+          this.props.setPhase("Players");
           this.props.redirectToPath(redirectPaths.Parameters.forward);
           //this.setState({ chooseCategories: true });
         }}

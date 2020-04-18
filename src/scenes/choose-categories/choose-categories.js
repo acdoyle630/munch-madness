@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Redirect } from "react-router-dom";
 import { resetCategories } from "../../actions/select-category";
 import { resetTeams } from "../../actions/teams";
+import Redirector from "../../scenes/redirector/redirector";
 import Tile from "./components/tile/tile";
 import ContinueButton from "./components/continue-button/continue-button";
 import ClearButton from "./components/clear-button/clear-button";
@@ -43,7 +43,9 @@ class ChooseCategories extends Component {
     //     />
     //   );
     // }
-
+    if (this.props.redirectTo !== this.props.match.path) {
+      return <Redirector />;
+    }
     return (
       <PageLayout>
         <div style={style.chooseCategories}>
@@ -78,6 +80,7 @@ class ChooseCategories extends Component {
 const mapStateToProps = (state) => {
   return {
     teams: state.teams,
+    redirectTo: state.redirectTo,
   };
 };
 

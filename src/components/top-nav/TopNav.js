@@ -5,10 +5,14 @@ import style from "./TopNav.jss";
 import { AppBar } from "@material-ui/core";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { redirectToPath } from "../../actions/redirect-to";
+import { setPhase } from "../../actions/set-phase";
 import { redirectPaths } from "../../constants/redirect-paths";
 
 class TopNav extends Component {
   render() {
+    const backPhase = redirectPaths[this.props.phase]
+      ? redirectPaths[this.props.phase].backPhase
+      : null;
     const back = redirectPaths[this.props.phase]
       ? redirectPaths[this.props.phase].back
       : "/home";
@@ -20,6 +24,7 @@ class TopNav extends Component {
             style={style.phase}
             onClick={() => {
               this.props.redirectToPath(back);
+              this.props.setPhase(backPhase);
             }}
           >
             <ArrowBackIosIcon />
@@ -48,6 +53,7 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       redirectToPath,
+      setPhase,
     },
     dispatch
   );
