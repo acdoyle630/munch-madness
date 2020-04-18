@@ -12,6 +12,7 @@ import { setLocationReducer } from "./set-location-reducer";
 import { showTopNavReducer } from "./show-top-nav-reducer";
 import { errorModalReducer } from "./modals/error-modal-reducer";
 import { setPhaseReducer } from "./set-phase-reducer";
+import { redirectToReducer } from "./redirect-to-reducer";
 
 export default combineReducers({
   selectedPrice: selectPriceReducers,
@@ -26,4 +27,5 @@ export default combineReducers({
   showTopNav: showTopNavReducer,
   errorModal: errorModalReducer,
   phase: setPhaseReducer,
+  redirectTo: redirectToReducer,
 });

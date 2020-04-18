@@ -10,7 +10,12 @@ class TopNav extends Component {
     return this.props.showTopNav ? (
       <AppBar position="fixed" style={style.topNav}>
         <div style={style.toolBar}>
-          <div style={style.phase}>
+          <div
+            style={style.phase}
+            onClick={() => {
+              console.log("CLICKED");
+            }}
+          >
             <ArrowBackIosIcon />
             {this.props.phase}
           </div>

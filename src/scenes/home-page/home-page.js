@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import mobileStyle from "./home-page.jss";
 import text from "./home-page-text";
-import { Redirect } from "react-router-dom";
+import Redirector from "../redirector/redirector";
 import { showTopNav } from "../../actions/show-top-nav";
 import { zipSearch } from "../../services/zip";
 import { setLocation } from "../../actions/set-location";
 import { openErrorModal } from "../../actions/modals/error-modal";
+import { redirectToPath } from "../../actions/redirect-to";
 import { setPhase } from "../../actions/set-phase";
 import logo from "../../assets/Logo.png";
 
@@ -29,9 +30,7 @@ class HomePage extends Component {
       const response = await zipSearch(this.state.zip);
       this.props.setPhase("Parameters");
       this.props.setLocation(response.item);
-      this.setState({
-        chooseSettings: true,
-      });
+      this.props.redirectToPath("/choose-settings");
     } catch (e) {
       this.props.openErrorModal({
         header: "You dun goofed",
@@ -47,14 +46,8 @@ class HomePage extends Component {
   };
 
   render() {
-    if (this.state.chooseSettings) {
-      return (
-        <Redirect
-          to={{
-            pathname: "/choose-settings",
-          }}
-        />
-      );
+    if (this.props.redirectTo !== this.props.match.path) {
+      return <Redirector />;
     }
 
     const style = mobileStyle;
@@ -77,6 +70,12 @@ class HomePage extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    redirectTo: state.redirectTo,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
@@ -84,9 +83,10 @@ const mapDispatchToProps = (dispatch) => {
       showTopNav,
       openErrorModal,
       setPhase,
+      redirectToPath,
     },
     dispatch
   );
 };
 
-export default connect(undefined, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
