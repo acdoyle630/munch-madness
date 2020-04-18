@@ -25,7 +25,7 @@ const mobileStyle = {
   },
   selectedBox: {
     ...box,
-    backgroundColor: colors.selectedBlue,
+    backgroundColor: colors.teal,
   },
 };
 

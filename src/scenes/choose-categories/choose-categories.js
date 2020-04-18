@@ -9,6 +9,7 @@ import ContinueButton from "./components/continue-button/continue-button";
 import ClearButton from "./components/clear-button/clear-button";
 import mobileStyle from "./choose-categories.jss";
 import PageLayout from "../../components/page-layout/PageLayout";
+import { tiles } from "./tiles";
 
 class ChooseCategories extends Component {
   constructor(props) {
@@ -20,20 +21,6 @@ class ChooseCategories extends Component {
 
   render() {
     const style = mobileStyle;
-    const tiles = [
-      "pizza",
-      "sandwich",
-      "sushi",
-      "fast food",
-      "Chinese",
-      "pho",
-      "thai",
-      "Italian",
-      "Mexican",
-      "food trucks",
-      "buffet",
-      "tapas",
-    ];
     // if (this.state.startOver) {
     //   return (
     //     <Redirect
@@ -63,13 +50,13 @@ class ChooseCategories extends Component {
           <div style={style.directions}>
             Choose up to 8 categories to include in the tournament.
           </div>
-          <input style={style.searchBar} placeholder={"search"}></input>
+          {/* <input style={style.searchBar} placeholder={"search"}></input> */}
           <div style={style.tileContainer}>
             {tiles.map((tile, index) => {
-              return <Tile tile={tile} key={index} />;
+              return <Tile tile={tile.name} icon={tile.icon} key={index} />;
             })}
           </div>
-          <ClearButton />
+          {/* <ClearButton /> */}
           <ContinueButton />
         </div>
       </PageLayout>
