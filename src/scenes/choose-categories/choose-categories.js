@@ -34,20 +34,20 @@ class ChooseCategories extends Component {
       "buffet",
       "tapas",
     ];
-    if (this.state.startOver) {
-      return (
-        <Redirect
-          to={{
-            pathname: "/",
-          }}
-        />
-      );
-    }
+    // if (this.state.startOver) {
+    //   return (
+    //     <Redirect
+    //       to={{
+    //         pathname: "/",
+    //       }}
+    //     />
+    //   );
+    // }
 
     return (
       <PageLayout>
         <div style={style.chooseCategories}>
-          <div
+          {/* <div
             onClick={() => {
               this.setState({ startOver: true });
               this.props.resetCategories();
@@ -56,7 +56,7 @@ class ChooseCategories extends Component {
             style={style.startOver}
           >
             Start Over
-          </div>
+          </div> */}
           <div style={style.header}>Categories</div>
           <div style={style.directions}>
             Choose up to 8 categories to include in the tournament.

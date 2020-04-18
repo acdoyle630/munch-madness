@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import Redirector from "../redirector/redirector";
 import Selector from "./components/selector/selector";
 import Distance from "./components/distance/distance";
 import General from "./components/general/general";
@@ -26,6 +27,9 @@ class ChooseSettings extends Component {
   };
 
   render() {
+    if (this.props.redirectTo !== this.props.match.path) {
+      return <Redirector />;
+    }
     const style = mobileStyle;
     return (
       <PageLayout>
@@ -43,6 +47,12 @@ class ChooseSettings extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    redirectTo: state.redirectTo,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
@@ -52,4 +62,4 @@ const mapDispatchToProps = (dispatch) => {
   );
 };
 
-export default connect(undefined, mapDispatchToProps)(ChooseSettings);
+export default connect(mapStateToProps, mapDispatchToProps)(ChooseSettings);

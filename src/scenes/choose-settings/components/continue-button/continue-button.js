@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { setPhase } from "../../../../actions/set-phase";
+import { redirectToPath } from "../../../../actions/redirect-to";
 import { Redirect } from "react-router-dom";
 import mobileStyle from "./continue-button.jss";
+import { redirectPaths } from "../../../../constants/redirect-paths";
 
 class ContinueButton extends Component {
   constructor(props) {
@@ -29,7 +32,9 @@ class ContinueButton extends Component {
       <div
         style={style.button}
         onClick={() => {
-          this.setState({ chooseCategories: true });
+          this.props.setPhase("Categories");
+          this.props.redirectToPath(redirectPaths.Parameters.forward);
+          //this.setState({ chooseCategories: true });
         }}
       >
         Continue to Categories
@@ -43,7 +48,13 @@ class ContinueButton extends Component {
 //   }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators(
+    {
+      setPhase,
+      redirectToPath,
+    },
+    dispatch
+  );
 };
 
 export default connect(
