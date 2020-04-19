@@ -14,11 +14,11 @@ import ThaiIcon from "../../assets/thai.png";
 export const tiles = [
   { name: "pizza", icon: PizzaIcon },
   { name: "sandwich", icon: SandwichIcon },
-  { name: "sushi", icon: PizzaIcon },
+  { name: "sushi", icon: SushiIcon },
   { name: "burger", icon: burgerIcon },
   { name: "chinese", icon: chineseIcon },
   { name: "chicken", icon: chickenIcon },
-  { name: "thai", icon: PizzaIcon },
+  { name: "thai", icon: ThaiIcon },
   { name: "tacos", icon: TacoIcon },
   { name: "healthy", icon: HealthyIcon },
   { name: "indian", icon: IndianIcon },

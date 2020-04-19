@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PageLayout from "../../components/page-layout/PageLayout";
+import Redirector from "../../scenes/redirector/redirector";
 
 class Bracket extends Component {
   render() {
+    if (this.props.redirectTo !== this.props.match.path) {
+      return <Redirector />;
+    }
     return (
       <PageLayout>
         <div>
@@ -21,6 +25,7 @@ class Bracket extends Component {
 const mapStateToProps = (state) => {
   return {
     players: state.players,
+    redirectTo: state.redirectTo,
   };
 };
 

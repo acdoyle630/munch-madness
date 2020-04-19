@@ -14,4 +14,9 @@ export const redirectPaths = Object.freeze({
     forward: "/bracket",
     backPhase: "Parameters",
   },
+  "Elite Ate": {
+    back: "/choose-categories",
+    forward: null,
+    backPhase: "Players",
+  },
 });
