@@ -2,8 +2,8 @@ import { colors } from "../../../../themes/colors";
 
 const mobileStyle = {
   tile: {
-    height: "20vw",
-    width: "20vw",
+    height: "100px",
+    width: "100px",
     border: "1px black solid",
     margin: "10px 5px 10px 5px",
     display: "flex",
@@ -13,8 +13,8 @@ const mobileStyle = {
   },
   selectedTile: {
     backgroundColor: colors.teal,
-    height: "20vw",
-    width: "20vw",
+    height: "100px",
+    width: "100px",
     border: "1px black solid",
     margin: "10px 5px 10px 5px",
     display: "flex",
@@ -24,8 +24,8 @@ const mobileStyle = {
   },
   disabledTile: {
     backgroundColor: "red",
-    height: "20vw",
-    width: "20vw",
+    height: "100px",
+    width: "100px",
     border: "1px black solid",
     margin: "10px 5px 10px 5px",
     display: "flex",
