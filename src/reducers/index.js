@@ -13,8 +13,10 @@ import { showTopNavReducer } from "./show-top-nav-reducer";
 import { errorModalReducer } from "./modals/error-modal-reducer";
 import { setPhaseReducer } from "./set-phase-reducer";
 import { redirectToReducer } from "./redirect-to-reducer";
+import { roundModalReducer } from "./modals/round-modal-reducer";
 
 export default combineReducers({
+  roundModal: roundModalReducer,
   selectedPrice: selectPriceReducers,
   selectedStars: selectStarsReducers,
   selectedDistance: selectDistanceReducer,

@@ -10,6 +10,7 @@ import HomePage from "./scenes/home-page/home-page";
 import ChooseSettings from "./scenes/choose-settings/choose-settings";
 import ChooseCategories from "./scenes/choose-categories/choose-categories";
 import ErrorModal from "./components/modals/ErrorModal";
+import RoundModal from "./components/modals/RoundModal";
 import TopNav from "./components/top-nav/TopNav";
 import Bracket from "./scenes/bracket/bracket";
 import "./index.css";
@@ -24,6 +25,7 @@ ReactDOM.render(
   <Provider store={store}>
     <TopNav />
     <ErrorModal />
+    <RoundModal />
     <Router>
       <div>
         <Route exact path="/" component={Redirector} />

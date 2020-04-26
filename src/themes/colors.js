@@ -6,4 +6,5 @@ export const colors = {
   black: "black",
   unselectedGrey: "#F9F7F7",
   selectedBlue: "blue",
+  orange: "#E97E36",
 };
