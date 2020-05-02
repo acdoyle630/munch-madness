@@ -7,6 +7,7 @@ import {
   openRoundModal,
   closeRoundModal,
 } from "../../actions/modals/round-modal";
+import { roundRouter } from "./rounds/roundRouter";
 
 class Bracket extends Component {
   render() {
@@ -20,16 +21,7 @@ class Bracket extends Component {
         that.props.closeRoundModal();
       }, 2000);
     }
-    return (
-      <PageLayout>
-        <div>
-          BRACKET
-          {this.props.players.map((player) => {
-            return <div>{player.name}</div>;
-          })}
-        </div>
-      </PageLayout>
-    );
+    return <PageLayout>{roundRouter[this.props.players.length]}</PageLayout>;
   }
 }
 
