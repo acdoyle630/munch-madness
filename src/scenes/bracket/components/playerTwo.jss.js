@@ -2,7 +2,7 @@ import { colors } from "../../../themes/colors";
 
 const style = (left) => ({
   playerContainer: {
-    height: "160px",
+    height: "125px",
     borderBottom: `solid 2px ${colors.lightestGray}`,
     borderTop: `solid 2px ${colors.lightestGray}`,
     borderRight: left && `solid 2px ${colors.lightestGray}`,

@@ -31,14 +31,21 @@ class EliteAte extends Component {
     ];
 
     return (
-      <div style={style.container}>
-        <img src={eliteAteLogo} alt="logo" style={style.logo} />
-        <div style={style.matchupContainer}>
-          {matchUps.map((players, index) => {
-            return <Matchup players={players} index={index} />;
-          })}
+      <>
+        <div style={style.imageContainer}>
+          <img src={eliteAteLogo} alt="logo" style={style.logo} />
         </div>
-      </div>
+        <div style={style.container}>
+          <div style={style.matchupContainer}>
+            {matchUps.map((players, index) => {
+              return <Matchup players={players} index={index} />;
+            })}
+          </div>
+          <div style={style.callToAction}>
+            <div style={style.text}>Game Time</div>
+          </div>
+        </div>
+      </>
     );
   }
 }
