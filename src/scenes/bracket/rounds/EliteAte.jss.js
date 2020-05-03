@@ -9,7 +9,8 @@ const style = {
   },
   container: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   },
   matchupContainer: {
     display: "flex",
@@ -25,8 +26,7 @@ const style = {
     height: "50px",
     width: "75vw",
     borderRadius: "25px",
-    position: "absolute",
-    bottom: "5vh",
+    marginBottom: "15px",
   },
   text: {
     font: "roboto condensed",
