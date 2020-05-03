@@ -16,6 +16,7 @@ class Matchup extends Component {
         <PlayerTwo
           player={this.props.players.playerTwo}
           left={this.props.players.left}
+          quarter={this.props.players.quarter}
         />
       </div>
     );

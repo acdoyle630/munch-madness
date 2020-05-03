@@ -10,11 +10,12 @@ const style = (left) => ({
     marginRight: left && "20px",
     marginLeft: !left && "20px",
     paddingRight: left && "14px",
-    paddingLeft: !left && "14px",
+    //paddingLeft: !left && "14px",
     marginBottom: "30px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly",
+    alignItems: "center",
   },
   player: {
     backgroundColor: colors.lightestGray,
@@ -25,6 +26,10 @@ const style = (left) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+  },
+  quarter: {
+    fontWeight: "bold",
+    color: colors.gray,
   },
 });
 

@@ -6,10 +6,9 @@ import style from "./playerTwo.jss.js";
 class PlayerTwo extends Component {
   render() {
     const componentStyle = style(this.props.left);
-    console.log(this.props.player);
     return (
       <div style={componentStyle.playerContainer}>
-        <div>Q1</div>
+        <div style={componentStyle.quarter}>{this.props.quarter}</div>
         <div style={componentStyle.player}>{this.props.player.name}</div>
       </div>
     );

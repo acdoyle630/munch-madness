@@ -5,7 +5,6 @@ import style from "./playerOne.jss.js";
 
 class PlayerOne extends Component {
   render() {
-    console.log(this.props);
     const componentStyle = style(this.props.left);
     return (
       <div style={componentStyle.playerContainer}>{this.props.player.name}</div>
