@@ -8,6 +8,7 @@ import CloseUp from "./closeUp";
 
 class MatchupModal extends Component {
   render() {
+    console.log(this.props.players);
     return (
       <Modal open={this.props.matchupModal.isOpen}>
         <div style={style.modal}>
@@ -27,6 +28,7 @@ class MatchupModal extends Component {
 const mapStateToProps = (state) => {
   return {
     matchupModal: state.matchupModal,
+    players: state.players,
   };
 };
 

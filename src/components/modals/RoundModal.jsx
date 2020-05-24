@@ -4,13 +4,19 @@ import { bindActionCreators } from "redux";
 import { Modal } from "@material-ui/core";
 import style from "./RoundModal.jss";
 import eliteAteLogo from "../../assets/elite_ate.png";
+import finalForkLogo from "../../assets/final_fork.png";
+import championDishLogo from "../../assets/champion_dish.png";
 
 const roundText = {
   8: "Round 1 of 3",
+  4: "Round 2 of 3",
+  2: "Round 3 of 3",
 };
 
 const roundLogo = {
   8: eliteAteLogo,
+  4: finalForkLogo,
+  2: championDishLogo,
 };
 
 class RoundModal extends Component {

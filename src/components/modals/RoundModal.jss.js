@@ -2,6 +2,8 @@ import { colors } from "../../themes/colors";
 
 const backgroundColors = {
   8: colors.orange,
+  4: colors.teal,
+  2: colors.darkOrange,
 };
 
 const style = (round) => {

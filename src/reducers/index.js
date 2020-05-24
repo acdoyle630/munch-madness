@@ -15,6 +15,7 @@ import { setPhaseReducer } from "./set-phase-reducer";
 import { redirectToReducer } from "./redirect-to-reducer";
 import { roundModalReducer } from "./modals/round-modal-reducer";
 import { matchupModalReducer } from "./modals/matchup-modal-reducer";
+import { champModalReducer } from "./modals/champ-modal-reducer";
 
 export default combineReducers({
   roundModal: roundModalReducer,
@@ -32,4 +33,5 @@ export default combineReducers({
   phase: setPhaseReducer,
   redirectTo: redirectToReducer,
   matchupModal: matchupModalReducer,
+  champModal: champModalReducer,
 });

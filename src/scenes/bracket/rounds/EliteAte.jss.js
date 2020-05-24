@@ -33,6 +33,11 @@ const style = {
     color: "white",
     fontWeight: "bold",
   },
+  championContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
 };
 
 export default style;

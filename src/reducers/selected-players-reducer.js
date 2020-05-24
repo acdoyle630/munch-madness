@@ -1,13 +1,16 @@
-import { ADD_NEW_PLAYER } from '../actions/add-new-player'
+import { ADD_NEW_PLAYER, SET_PLAYERS } from "../actions/add-new-player";
 
-const initialState = []
+const initialState = [];
 
-export const selectedPlayersReducer = (state = initialState, action) =>{
-    switch(action.type){
-      case ADD_NEW_PLAYER:
-        return state.concat(action.newPlayer)
-      default : return state;
-    }
+export const selectedPlayersReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_NEW_PLAYER:
+      return state.concat(action.newPlayer);
+    case SET_PLAYERS:
+      return action.players;
+    default:
+      return state;
   }
-  
-export default selectedPlayersReducer
+};
+
+export default selectedPlayersReducer;

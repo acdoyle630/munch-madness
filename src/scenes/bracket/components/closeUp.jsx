@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { closeMatchupModal } from "../../../actions/modals/matchup-modal";
+import { closeRoundModal } from "../../../actions/modals/round-modal";
+import { openChampModal } from "../../../actions/modals/champ-modal";
+import { setPlayers } from "../../../actions/add-new-player";
+import { setPhase } from "../../../actions/set-phase";
 import style from "./closeUp.jss.js";
+
+const nextPhase = {
+  4: "Final Fork",
+  2: "Champion Dish",
+};
 
 class CloseUp extends Component {
   constructor(props) {
@@ -11,6 +21,7 @@ class CloseUp extends Component {
       selectedPlayer: undefined,
       playerOne: undefined,
       playerTwo: undefined,
+      playerOneIndex: 0,
     };
   }
 
@@ -22,16 +33,41 @@ class CloseUp extends Component {
   };
 
   select = (player, index) => {
-    const nextRoundPlayers = [...this.state.nextRound];
-    nextRoundPlayers.push(player);
-    this.setState({ nextRound: nextRoundPlayers, selectedPlayer: index });
-    this.advance();
+    if (this.props.players.length === 2) {
+      this.props.openChampModal(player);
+      this.props.closeMatchupModal();
+    } else {
+      const nextRoundPlayers = [...this.state.nextRound];
+      nextRoundPlayers.push(player);
+      this.setState(
+        { nextRound: nextRoundPlayers, selectedPlayer: index },
+        this.advance
+      );
+    }
   };
 
-  advance = () => {};
+  advance = () => {
+    setTimeout(() => {
+      //const nextRound = this.state.round + 1;
+      const playerOneIndex = this.state.playerOneIndex + 2;
+      const playerTwoIndex = this.state.playerOneIndex + 3;
+      if (this.props.players[playerOneIndex]) {
+        this.setState({
+          //round: nextRound,
+          playerOne: this.props.players[playerOneIndex],
+          playerTwo: this.props.players[playerTwoIndex],
+          playerOneIndex: playerOneIndex,
+          selectedPlayer: undefined,
+        });
+      } else {
+        this.props.closeMatchupModal();
+        this.props.setPlayers(this.state.nextRound);
+        this.props.setPhase(nextPhase[this.state.nextRound.length]);
+      }
+    }, 1000);
+  };
 
   render() {
-    console.log(this.state);
     return (
       <div style={style.container}>
         <div
@@ -72,7 +108,16 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators(
+    {
+      closeMatchupModal,
+      closeRoundModal,
+      setPlayers,
+      setPhase,
+      openChampModal,
+    },
+    dispatch
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CloseUp);
