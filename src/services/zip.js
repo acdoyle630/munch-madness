@@ -1,5 +1,4 @@
 import { get } from "axios";
-import keys from "../private/keys.json";
 
 export const zipSearch = (zipCode) => {
   const mockResponse = {
