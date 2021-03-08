@@ -32,7 +32,7 @@ class General extends React.Component {
 
     return (
       <div style={style.general}>
-        <div style={style.switch}>
+        {/* <div style={style.switch}>
           <div style={style.text}>Open now</div>
           <Switch
             color="primary"
@@ -40,7 +40,7 @@ class General extends React.Component {
             onChange={this.handleChange("open_now")}
             style={style.individualSwitch}
           />
-        </div>
+        </div> */}
         {/* <div style={style.switch}>  No Groups Query
             <div>
                 Good for Groups
@@ -51,7 +51,7 @@ class General extends React.Component {
                 style={style.individualSwitch}
             />
         </div> */}
-        <div style={style.switch}>
+        {/* <div style={style.switch}>
           <div style={style.text}>Takes Reservations</div>
           <Switch
             color="primary"
@@ -59,7 +59,7 @@ class General extends React.Component {
             onChange={this.handleChange("reservation")}
             style={style.individualSwitch}
           />
-        </div>
+        </div> */}
         {/* <div style={style.switch}>
             <div>
                 Offers Deals
