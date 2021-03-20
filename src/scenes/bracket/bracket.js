@@ -7,13 +7,15 @@ import {
   openRoundModal,
   closeRoundModal,
 } from "../../actions/modals/round-modal";
+import { resetTeams } from "../../actions/teams";
 import ChampModal from "../../components/modals/champModal";
 import { roundRouter } from "./rounds/roundRouter";
 
 class Bracket extends Component {
   render() {
     const that = this;
-    if (this.props.redirectTo !== this.props.match.path) {
+    if (this.props.redirectTo !== "/bracket") {
+      this.props.resetTeams();
       return <Redirector />;
     }
     if (this.props.players.length === 8) {
@@ -36,7 +38,7 @@ class Bracket extends Component {
     }
     return (
       <>
-        <PageLayout>{roundRouter[this.props.players.length]}</PageLayout>{" "}
+        <PageLayout>{roundRouter[this.props.players.length]}</PageLayout>
         <ChampModal />
       </>
     );
@@ -51,7 +53,10 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ openRoundModal, closeRoundModal }, dispatch);
+  return bindActionCreators(
+    { openRoundModal, closeRoundModal, resetTeams },
+    dispatch
+  );
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bracket);

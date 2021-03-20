@@ -3,6 +3,7 @@ import {
   DISABLE_CATEGORY,
   RESET_CATEGORIES,
 } from "../actions/select-category";
+import { RESET_TEAMS } from "../actions/teams";
 
 const initialState = {
   pizza: {
@@ -72,6 +73,8 @@ export const selectCategoryReducer = (state = initialState, action) => {
         },
       });
     case RESET_CATEGORIES:
+      return initialState;
+    case RESET_TEAMS:
       return initialState;
     default:
       return state;
