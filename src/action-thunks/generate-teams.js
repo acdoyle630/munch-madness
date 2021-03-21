@@ -1,34 +1,27 @@
-import { addNewPlayer } from '../actions/add-new-player'
-import { openBracket } from '../actions/open-bracket'
+import { addNewPlayer, setPlayers } from "../actions/add-new-player";
 
 export const generateTeams = () => (dispatch, getState) => {
-    const state = getState()
-    const categoryNames = Object.keys(state.selectedCategory).filter((cat) => {
-        return state.selectedCategory[cat].selected
-    })
-    for( var i = 0; i < categoryNames.length; i++ ){
-        const numberOfTeams = Math.round(8 / categoryNames.length)
-        let selectableTeams = state.teams[categoryNames[i]].teams
-        dispatch(findUniqueTeam(selectableTeams, numberOfTeams))
-    }
-    if(state.players.length === 8){
-        dispatch(openBracket())
-    }
-}
+  const { selectedCategory, teams } = getState();
+  const categoryNames = Object.keys(selectedCategory).filter((cat) => {
+    return selectedCategory[cat].selected;
+  });
 
-const findUniqueTeam = ( teams, numberOfTeams ) => async (dispatch, getState) => {
-    const state = getState()
-    if(teams.length > 0 && state.players.length < 8){
-        const chosenTeams = state.players
-        const randomIndex = Math.floor(Math.random() * teams.length)
-        if( chosenTeams.indexOf(teams[randomIndex]) === -1 ) {
-            if(numberOfTeams > 0){
-                await dispatch(addNewPlayer(teams[randomIndex]))
-                dispatch(findUniqueTeam(teams, --numberOfTeams))
-            }
-        } else {
-            teams.splice(randomIndex, 1)
-            dispatch(findUniqueTeam(teams, numberOfTeams))
-        }
+  let teamList = [];
+  let i = 0;
+
+  while (teamList.length < 8) {
+    const potentialTeams = teams[categoryNames[i]].teams;
+    const teamLength = teams[categoryNames[i]].teams.length;
+    const nextTeamIndex = Math.floor(Math.random() * teamLength);
+
+    // TODO add  duplicate check
+    teamList.push(potentialTeams[nextTeamIndex]);
+    if (i < categoryNames.length - 1) {
+      i++;
+    } else {
+      i = 0;
     }
-}
+  }
+
+  dispatch(setPlayers(teamList));
+};

@@ -13,11 +13,8 @@ import { roundRouter } from "./rounds/roundRouter";
 
 class Bracket extends Component {
   render() {
+    //TODO redirect top nav
     const that = this;
-    if (this.props.redirectTo !== "/bracket") {
-      this.props.resetTeams();
-      return <Redirector />;
-    }
     if (this.props.players.length === 8) {
       this.props.openRoundModal(this.props.players.length);
       setTimeout(() => {
